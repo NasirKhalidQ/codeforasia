@@ -87,7 +87,7 @@ function dark_mode(){
 
 
 function move_skills(skill_name){
-    $(`#${skill_name}`).on('click mouseover', function(e) {
+    $(`#${skill_name}`).on('click mouseover mouseout', function(e) {
         skill = document.getElementById(`${skill_name}`);
         var pid = skill.parentNode.id;
         
@@ -108,8 +108,12 @@ function move_skills(skill_name){
                 if (pid == "right_panel"){
                     document.getElementById(`${skill_name}`).className = "btn btn-danger btn-sm";
                 }
+                break;
+
+            case  "mouseout":
+                if (pid == "right_panel"){
+                    document.getElementById(`${skill_name}`).className = "btn btn-success btn-sm";
+                }
                 break;}
     });
 }
-
-
