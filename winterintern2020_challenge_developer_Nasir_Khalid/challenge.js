@@ -90,16 +90,16 @@ function move_skills(skill_name){
     $(`#${skill_name}`).on('click mouseover', function(e) {
         skill = document.getElementById(`${skill_name}`);
         var pid = skill.parentNode.id;
-        console.log(pid);
+        
         switch(e.type) {
             case  "click":
                 if (pid == "skills"){
-                    $(`#${skill_name}`).appendTo("#right_panel");
+                    $(`#${skill_name}`).appendTo("#right_panel"); //move to the right panel
                     document.getElementById(`${skill_name}`).className = "btn btn-success btn-sm mb-";
                 }
 
                 else{
-                    $(`#${skill_name}`).appendTo("#skills");
+                    $(`#${skill_name}`).appendTo("#skills"); //move to the left skills panel
                     document.getElementById(`${skill_name}`).className = "btn btn-success btn-sm";
                 }        
                 break;
@@ -109,9 +109,7 @@ function move_skills(skill_name){
                     document.getElementById(`${skill_name}`).className = "btn btn-danger btn-sm";
                 }
                 break;}
-                
     });
 }
-
 
 
