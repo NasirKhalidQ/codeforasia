@@ -26,6 +26,16 @@ $("#date").on('blur focus', function(e) {
     }
 });
 
+//change to light mode
+$('#light').on('change', function(e) {
+    light_mode();
+});
+
+//change to dark mode
+$('#dark').on('change', function(e) {
+    dark_mode();
+});
+
 //ask for name on focus
 function ask_name() {
     document.getElementById("nameOutput").innerText = "Hello there! What's your name?";
@@ -59,4 +69,14 @@ function get_age() {
 
 function prompt_age(){
     document.getElementById("ageOutput").innerText = `Lemme guess, your age is...`;
+}
+
+function light_mode(){
+    document.getElementById("themeOutput").innerText = `You chose Light mode!`;
+    document.getElementById("right_panel").className = "panel bg-light text-dark";
+}
+
+function dark_mode(){
+    document.getElementById("themeOutput").innerText = `You chose Dark mode!`;
+    document.getElementById("right_panel").className = "panel bg-dark text-white";
 }
