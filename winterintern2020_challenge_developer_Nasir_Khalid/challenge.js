@@ -1,5 +1,4 @@
 
-
 //file to add dynamic properties to the web page
 
 $("#name").on('blur focus', function(e) {
@@ -35,6 +34,11 @@ $('#light').on('change', function(e) {
 $('#dark').on('change', function(e) {
     dark_mode();
 });
+
+//move skill buttons
+move_skills("html");
+move_skills("css");
+move_skills("javascript");
 
 //ask for name on focus
 function ask_name() {
@@ -80,3 +84,34 @@ function dark_mode(){
     document.getElementById("themeOutput").innerText = `You chose Dark mode!`;
     document.getElementById("right_panel").className = "panel bg-dark text-white";
 }
+
+
+function move_skills(skill_name){
+    $(`#${skill_name}`).on('click mouseover', function(e) {
+        skill = document.getElementById(`${skill_name}`);
+        var pid = skill.parentNode.id;
+        console.log(pid);
+        switch(e.type) {
+            case  "click":
+                if (pid == "skills"){
+                    $(`#${skill_name}`).appendTo("#right_panel");
+                    document.getElementById(`${skill_name}`).className = "btn btn-success btn-sm mb-";
+                }
+
+                else{
+                    $(`#${skill_name}`).appendTo("#skills");
+                    document.getElementById(`${skill_name}`).className = "btn btn-success btn-sm";
+                }        
+                break;
+
+            case  "mouseover":
+                if (pid == "right_panel"){
+                    document.getElementById(`${skill_name}`).className = "btn btn-danger btn-sm";
+                }
+                break;}
+                
+    });
+}
+
+
+
